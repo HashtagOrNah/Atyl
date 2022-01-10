@@ -1,0 +1,63 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Enemies/Tribb/tribb_movement.gd" type="Script" id=1]
+[ext_resource path="res://Images/enemy/tribb_idle12.png" type="Texture" id=2]
+[ext_resource path="res://Images/enemy/tribb_idle7.png" type="Texture" id=3]
+[ext_resource path="res://Images/enemy/tribb_idle10.png" type="Texture" id=4]
+[ext_resource path="res://Images/enemy/tribb_idle8.png" type="Texture" id=5]
+[ext_resource path="res://Images/enemy/tribb_idle11.png" type="Texture" id=6]
+[ext_resource path="res://Images/enemy/tribb_idle9.png" type="Texture" id=7]
+[ext_resource path="res://Images/enemy/tribb_idle4.png" type="Texture" id=8]
+[ext_resource path="res://Images/enemy/tribb_idle5.png" type="Texture" id=9]
+[ext_resource path="res://Images/enemy/tribb_idle6.png" type="Texture" id=10]
+[ext_resource path="res://Images/enemy/tribb_idle1.png" type="Texture" id=11]
+[ext_resource path="res://Images/enemy/tribb_idle2.png" type="Texture" id=12]
+[ext_resource path="res://Images/enemy/tribb_idle3.png" type="Texture" id=13]
+[ext_resource path="res://Images/enemy/tribb_roll5.png" type="Texture" id=14]
+[ext_resource path="res://Images/enemy/tribb_roll_start3.png" type="Texture" id=15]
+[ext_resource path="res://Images/enemy/tribb_roll_start4.png" type="Texture" id=16]
+[ext_resource path="res://Images/enemy/tribb_roll1.png" type="Texture" id=17]
+[ext_resource path="res://Images/enemy/tribb_roll_start1.png" type="Texture" id=18]
+[ext_resource path="res://Images/enemy/tribb_roll3.png" type="Texture" id=19]
+[ext_resource path="res://Images/enemy/tribb_roll_start2.png" type="Texture" id=20]
+[ext_resource path="res://Images/enemy/tribb_roll4.png" type="Texture" id=21]
+[ext_resource path="res://Images/enemy/tribb_roll6.png" type="Texture" id=22]
+[ext_resource path="res://Images/enemy/tribb_roll2.png" type="Texture" id=23]
+[ext_resource path="res://Images/enemy/tribb_roll_start5.png" type="Texture" id=24]
+[ext_resource path="res://Images/enemy/tribb_roll_start6.png" type="Texture" id=25]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.5625, 3.8125 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "Walk_Start",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 14 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 10.0
+} ]
+
+[node name="body" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 1.5625 )
+scale = Vector2( 0.925849, 0.898618 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Idle"
+frame = 4
+playing = true
